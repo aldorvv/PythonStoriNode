@@ -16,7 +16,7 @@ Including another URLconf
 from django.urls import include, path
 from rest_framework import routers
 
-from accounts.views import AccountView
+from apps.accounts.views import AccountView
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()

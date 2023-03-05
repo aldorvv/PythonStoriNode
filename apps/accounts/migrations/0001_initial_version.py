@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 
-import accounts.models
+import apps.accounts.models
 
 
 class Migration(migrations.Migration):
@@ -29,8 +29,10 @@ class Migration(migrations.Migration):
                     "file",
                     models.FileField(
                         unique=True,
-                        upload_to=accounts.models._get_new_name,
-                        validators=[accounts.models._validate_file_extension],
+                        upload_to=apps.accounts.models._get_new_name,
+                        validators=[
+                            apps.accounts.models._validate_file_extension
+                        ],
                     ),
                 ),
                 ("moves", models.ManyToManyField(to="moves.move")),

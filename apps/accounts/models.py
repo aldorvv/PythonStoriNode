@@ -3,7 +3,7 @@ from uuid import uuid4
 from django.db.models import FileField, ManyToManyField, Model
 from django.forms import ValidationError
 
-from moves.models import Move
+from ..moves.models import Move
 
 
 def _validate_file_extension(req):

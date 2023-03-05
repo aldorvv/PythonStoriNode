@@ -10,7 +10,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import AllowAny
 from rest_framework.viewsets import ModelViewSet
 
-from moves.models import Move
+from ..moves.models import Move
 from utils import MediaStorage
 from utils.mail import Email
 
