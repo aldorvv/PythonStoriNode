@@ -1,8 +1,8 @@
 from pathlib import Path
 
 from django.conf import settings
-from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 
 class Email:
@@ -13,7 +13,6 @@ class Email:
 
     def compose(self, template, context):
         path = Path.cwd().joinpath(f"templates/{template}")
-        print(path)
         self.html = render_to_string(str(path), context)
 
     def send_to(self, to):

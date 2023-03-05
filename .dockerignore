@@ -102,7 +102,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .venv
 env/
 venv/
@@ -130,6 +129,6 @@ dmypy.json
 .venv
 db.sqlite3
 __pycache__
-.env
 .vscode/
-volumes
+Dockerfile
+volumes/

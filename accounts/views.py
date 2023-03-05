@@ -1,8 +1,8 @@
+import calendar
 import csv
 import json
-import calendar
-
 from datetime import datetime as dt
+
 from django.db.models import Avg, Sum
 from django.forms import ValidationError
 from django.http import HttpResponse
@@ -53,6 +53,10 @@ def _get_monthly_counts(transactions):
     return monthly_counts
 
 
+def _format_agg(result, name, attr="quantity", digits=2):
+    return round(result[f"{attr}__{name}"], digits)
+
+
 class AccountView(ModelViewSet):
     permission_classes = [AllowAny]
     queryset = Account.objects.all()
@@ -96,10 +100,10 @@ class AccountView(ModelViewSet):
         mail.compose(
             "summary.html",
             {
-                "total": total,
-                "avg_credit": avg_cred,
-                "avg_debit": avg_deb,
-                "counts": _get_monthly_counts(),
+                "total": _format_agg(total, "sum"),
+                "avg_credit": _format_agg(avg_cred, "avg"),
+                "avg_debit": _format_agg(avg_deb, "avg"),
+                "counts": _get_monthly_counts(moves),
             },
         )
         mail.send_to(recipient)
