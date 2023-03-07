@@ -17,7 +17,7 @@ cd storiPythonNode
 In order to setup the email account to use you should use an "Application password"
 for your gmail account.
 
-You can see [how to get one here!](https://support.google.com/accounts/answer/185833?)
+You can see [how to get one here!](https://support.google.com/accounts/answer/185833)
 
 Once you got your password and user, create a copy of ´.env.template´ file with
 ´´´bash
